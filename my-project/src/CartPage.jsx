@@ -4,12 +4,15 @@ import {getProductData} from "./Api";
 import { useState } from "react";
 import Loading from "./Loading";
 import CartList from "./CartList";
+import { withCart } from "./withProvider";
 
 function cartPage({cart,updateCart}){  
 
  const [loading,setLoading]=useState(true);
   const [products, setProducts]=useState([]);
+
   const productId= Object.keys(cart);
+
 
    useEffect(function(){
    setLoading(false);
@@ -35,4 +38,4 @@ function cartPage({cart,updateCart}){
     </div>
     ); 
      }
-export default cartPage;
+export default withCart(cartPage);

@@ -7,6 +7,7 @@ import { HiArrowSmRight } from "react-icons/hi";
 import NoFound from "./NoFound";
 //import NoMatchProduct from "./NoMatchProduct";
 import Loading from "./Loading";
+import { withCart } from './withProvider';
 
 
 function ProductDetail({onAddToCard}) {
@@ -75,4 +76,4 @@ function ProductDetail({onAddToCard}) {
     </div>
   );
 }
-export default ProductDetail;
+export default withCart(ProductDetail);

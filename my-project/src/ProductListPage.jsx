@@ -1,10 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, createContext } from 'react';
 import ProductList from './ProductList';
 import NoMatchProduct from './NoMatchProduct';
 import { getProductList } from './Api';
 import Loading from "./Loading";
+import { Navigate } from 'react-router-dom';
 
 function ProductListPage() {
+
   const [query, setQuery] = useState('');
   const [sort, setSort] = useState('default');
   const [productList, setProductList] = useState([]);
@@ -22,7 +24,7 @@ function ProductListPage() {
   let data = productList.filter(function(item) {
     const lowerCaseTitle = item.title.toLowerCase();
     const lowerCaseProduct = query.toLowerCase();
-    return lowerCaseTitle.indexOf(lowerCaseProduct) != -1;
+    return lowerCaseTitle.indexOf(lowerCaseProduct)!= -1;
   });
   
 
@@ -45,9 +47,11 @@ function ProductListPage() {
   }
   
   if (loading) {
-    return <Loading />
+    return <Loading />;
   }
- 
+//  if(!user){
+//   return <Navigate to="/login"/>
+//  }
   return (
     <div>
       <div className=" flex justify-end gap-2 mt-8">
@@ -61,8 +65,7 @@ function ProductListPage() {
         <select
           onChange={handleSortChange}
           value={sort}
-          className="border-2 border-gray-300 bg-gray-50 mb-6 py-1 px-4 text-xl mr-28"
-        >
+          className="border-2 border-gray-300 bg-gray-50 mb-6 py-1 px-4 text-xl mr-28" >
           <option value="default"> Default short</option>
           <option value="name">Short by name</option>
           <option value="prise">Short by prise</option>

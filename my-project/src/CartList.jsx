@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react"; 
 import CartRow from "./CartRow";
 
-function CartList({products,cart,updateCart,}){
-  const [localCart, setLocalCart]=useState(cart);
+function CartList({products,cart,updateCart}){
 
+  const [localCart, setLocalCart]=useState(cart);
   
   useEffect(function(){
-    setLocalCart(cart);
+  setLocalCart(cart);
   },
   [cart]);
 
