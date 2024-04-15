@@ -11,6 +11,9 @@ import AuthRouter from './AuthRoute';
 import SignupPage from './SignupPage';
 import UserProvider from './UserProvider.jsx/UserProvider';
 import CartProvider from './UserProvider.jsx/CartProvider';
+import Alert from './Alert';
+import AlertProvider from './userProvider.jsx/AlertProvider';
+import LoginPage from './LoginPage';
 
 function App() {
 
@@ -18,6 +21,8 @@ function App() {
     <div>
       <UserProvider>
       <CartProvider>
+        <AlertProvider>
+        <Alert />
       <UserRouter>
         < NavBar />
         </UserRouter>
@@ -29,12 +34,13 @@ function App() {
             <Route path="/products/:id" element={<ProductDetail />} />
             <Route path="*" element={<NoFound />} />
             <Route path="/product" element={<CartPage />} />
-            {/* <Route path="/login" element={<AuthRouter ><LoginPage  /></AuthRouter>} /> */}
-            <Route path="/login" element= {<AuthRouter><SignupPage /></AuthRouter>}/>
+            <Route path="/login" element={<AuthRouter ><LoginPage  /></AuthRouter>} />
+            {/* <Route path="/login" element= {<AuthRouter><SignupPage /></AuthRouter>}/> */}
           </Routes>
         </div>
       </div>
       <Footer />
+      </AlertProvider>
       </CartProvider>
       </UserProvider> 
     </div>

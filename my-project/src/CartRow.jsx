@@ -4,6 +4,7 @@ import Product from "./Product";
 
 
 function CartRow({products,quantity,onQuantityChange,handleRemove}){
+    
     function handleChange(event){
         onQuantityChange(products.id,+event.target.value);
     }

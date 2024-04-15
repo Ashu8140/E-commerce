@@ -4,7 +4,7 @@ import * as Yup from "yup";
 import axios from "axios";
 import { InputLogin } from "./Input";
 import { Link} from "react-router-dom";
-import { withUser } from "./withProvider";
+import { withAlert, withUser } from "./withProvider";
 
 function callLogApi(values,bag){
   console.log("bag",bag);
@@ -20,7 +20,9 @@ function callLogApi(values,bag){
     bag.props.setUser(user);
   }).catch(()=>{
    
-  })
+   bag.props.setAlert({type:"error",message:"Invalid creantial"});
+  }
+  );
 }
 
 
@@ -89,7 +91,7 @@ const Formik=withFormik({
 })(LoginPage);
 
 
-export default withUser(Formik);
+export default withUser(withAlert(Formik));
 
 
 

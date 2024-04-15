@@ -9,11 +9,11 @@ function CartProvider({children}){
     const [cart, setCart] = useState(savedData);
 
     const onAddToCard = (productId, count) => {
-      
       let oldCount = cart[productId] || 0;
       const newCart = { ...cart, [productId]: oldCount + count }; 
       updateCart(newCart);
     };
+    
     function updateCart(newCart) {
       setCart(newCart);
       const cartString = JSON.stringify(newCart);
