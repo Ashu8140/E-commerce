@@ -3,7 +3,7 @@ import { Navigate } from "react-router-dom";
 import { withUser } from "./withProvider";
 
 const AuthRouter=({user,children})=>{
-    console.log("user",user);
+    // console.log("user",(user));
 
     if(user){
    return<Navigate to="/"/>

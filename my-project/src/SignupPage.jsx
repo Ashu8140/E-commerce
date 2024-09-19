@@ -43,7 +43,7 @@ return (
 onSubmit={handleSubmit}
 
 className="flex flex-col w-80 p-5 rounded-md shadow-md bg-white" >
-    <h1 className="text-2xl font-bold self-center mb-4">Login</h1>
+    <h1 className="text-2xl font-bold self-center mb-4">SignUp Page</h1>
 
     <InputSignup
     label="name" 

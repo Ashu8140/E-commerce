@@ -4,8 +4,9 @@ import NoMatchProduct from './NoMatchProduct';
 import { getProductList } from './Api';
 import Loading from "./Loading";
 import { Navigate } from 'react-router-dom';
+import { withUser } from './withProvider';
 
-function ProductListPage() {
+function ProductListPage({user}) {
 
   const [query, setQuery] = useState('');
   const [sort, setSort] = useState('default');
@@ -49,15 +50,15 @@ function ProductListPage() {
   if (loading) {
     return <Loading />;
   }
-//  if(!user){
-//   return <Navigate to="/login"/>
-//  }
+ if(!user){
+  return <Navigate to="/login"/>
+ }
   return (
     <div>
-      <div className=" flex justify-end gap-2 mt-8">
+      <div className="gap-2 mt-8">
         <input
           value={query}
-          className="border-2 border-gray-300 ml-8 py-1 text-xl bg-gray-50 mb-6"
+          className="border-2 ml-2 border-gray-300 py-1 text-xl bg-gray-50 mb-6"
           placeholder="Search"
           onChange={handleChangeQuery}
         />
@@ -65,7 +66,7 @@ function ProductListPage() {
         <select
           onChange={handleSortChange}
           value={sort}
-          className="border-2 border-gray-300 bg-gray-50 mb-6 py-1 px-4 text-xl mr-28" >
+          className="border-2 ml-2 border-gray-300 bg-gray-50 mb-6 py-1 px-9  text-xl" >
           <option value="default"> Default short</option>
           <option value="name">Short by name</option>
           <option value="prise">Short by prise</option>
@@ -78,4 +79,4 @@ function ProductListPage() {
   );
 }
 
-export default ProductListPage;
+export default withUser(ProductListPage);

@@ -28,8 +28,8 @@ function handleRemove(productIds){
 
 return(    
 <div>
-    <div className="flex px-4 py-2 mx-10 mt-10 space-x-4 bg-gray-100 border border-gray-300">
-        <span className="ml-12 font-bold grow">Product</span>
+    <div className="flex px-4 py-2 mx-2 mt-10 space-x-4 bg-gray-100 border border-gray-300">
+        <span className="ml-4 font-bold grow">Product</span>
         <span className="w-16 font-bold">Price</span>
         <span className="w-24 font-bold">Quantity</span>
         <span className="w-24 font-bold">Subtotal</span>
@@ -45,7 +45,7 @@ return <CartRow
    />
 })
 }
-<div className="flex justify-end py-3 mx-10 border border-gray-300">
+<div className="flex justify-end py-3 mx-2 border border-gray-300">
      <button onClick={handleUpdateCartClick} className="px-4 py-2 mr-4 text-lg text-white bg-red-500 border rounded-md">Update Cart</button> </div>  
 </div>
 );

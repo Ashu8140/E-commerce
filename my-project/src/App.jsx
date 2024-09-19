@@ -19,6 +19,7 @@ function App() {
 
   return (
     <div>
+      {/* <Test/> */}
       <UserProvider>
       <CartProvider>
         <AlertProvider>
@@ -27,15 +28,15 @@ function App() {
         < NavBar />
         </UserRouter>
         
-      <div className="p-16 bg-gray-200 " >
-        <div className="h-full p-16 pt-4 bg-white">
+      <div className="p-4 bg-gray-200 " >
+        <div className="h-full  pt-4 bg-white">
           <Routes>
             <Route path="/" element={<UserRouter><ProductListPage /></UserRouter>} />
             <Route path="/products/:id" element={<ProductDetail />} />
             <Route path="*" element={<NoFound />} />
             <Route path="/product" element={<CartPage />} />
             <Route path="/login" element={<AuthRouter ><LoginPage  /></AuthRouter>} />
-            {/* <Route path="/login" element= {<AuthRouter><SignupPage /></AuthRouter>}/> */}
+            <Route path="/signup" element= {<AuthRouter><SignupPage /></AuthRouter>}/>
           </Routes>
         </div>
       </div>

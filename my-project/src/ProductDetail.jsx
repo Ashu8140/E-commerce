@@ -50,28 +50,51 @@ function ProductDetail({onAddToCard}) {
     return <NoFound />;
   }
   return (
-    <div>
-      <div className="flex max-w-2xl gap-8 p-6 pb-16 bg-gray-100 border-2 border-solid ">
-
-        <div>
-          <Link className="flex text-xl" to="/"><HiArrowSmLeft className="text-3xl" />Back </Link>
-          <img className="h-full max-w-full "  src={product.thumbnail} />
+    
+    <div className="max-w-md mx-auto bg-white rounded-lg overflow-hidden md:max-w-xl mt-6">
+      <Link className="flex text-xl" to="/"><HiArrowSmLeft className="text-3xl" />Back </Link>
+      <div className="md:flex">
+        <div className="md:flex-shrink-0">
+          <img
+            className="h-48 w-full object-cover md:w-48 mt-8"
+            src={product.thumbnail}
+            alt="Product"
+          />
         </div>
-        <div className="mt-12">
-          <h1 className="text-2xl">{product.title}</h1>
-          <h1 className="mt-4 text-xl font-bold">{product.prise}</h1>
-          <p className="mt-2">{product.description}</p>
-          
-           <input onChange={handleAddToCard} className="w-10 py-1 text-center border-2 border-black rounded-md " type="number" min={1} value={count}  ></input>
-          
-          <button onClick={onButtonClick} className="px-8 py-1 mt-6 ml-1 bg-red-400 border-2 border-black rounded-md">Add to Card</button>
+        <div className="p-8">
+          <div className="uppercase tracking-wide text-sm text-indigo-500 font-semibold">
+           {product.title}
+          </div>
+          <p className="mt-2 text-gray-600">
+           {product.description}
+          </p>
+          <div className="mt-2">
+            <div className="text-gray-900 font-bold">{product.price}</div>
+          </div>
+          <div className="mt-4">
+            <label
+              className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+              htmlFor="quantity"
+            >
+              {product.quantity}
+            </label>
+            <input
+              className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+              type='number' min={1} value={count}  onChange={handleAddToCard}
+            />
+          </div>
+          <div className="mt-4">
+            <button  onClick={onButtonClick} className="bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded">
+              Add to Cart
+            </button>
+            <div className="flex justify-between mt-4">
+         <div>
+           {id > 1 && <Link className="flex text-xl item-center" to={"/products/" + (id - 1)}><HiArrowSmLeft className="text-3xl" />Preious </Link>}
+       </div>
+         <Link className="flex text-xl item-center" to={"/products/" + (id + 1)}><HiArrowSmRight className="text-3xl" />Next </Link>
+       </div>
+          </div>
         </div>
-      </div>
-      <div className="flex justify-between mt-4">
-        <div>
-          {id > 1 && <Link className="flex text-xl item-center" to={"/products/" + (id - 1)}><HiArrowSmLeft className="text-3xl" />Preious </Link>}
-        </div>
-        <Link className="flex text-xl item-center" to={"/products/" + (id + 1)}><HiArrowSmRight className="text-3xl" />Next </Link>
       </div>
     </div>
   );

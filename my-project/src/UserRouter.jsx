@@ -4,7 +4,7 @@ import { withUser } from "./withProvider";
 
 const UserRouter=({user,children})=>{
     if(!user){
-    return<Navigate to="/login"/>
+    return<Navigate to="/signup"/>
     }
     return  children;
 }
